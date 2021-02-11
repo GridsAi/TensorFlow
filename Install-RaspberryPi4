@@ -1,0 +1,40 @@
+1. Install Re-Check python และ pip เวอชั่น
+
+  python3 --version
+
+  pip3 --version
+
+  sudo apt update
+
+2. Install python3-dev python3-pip python3-venv
+
+  sudo apt install python3-dev python3-pip python3-venv
+
+  sudo apt install libatlas-base-dev        # required for numpy
+
+3. สร้างสภาพแวดล้อมเสมือนจริง
+
+  python3 -m venv --system-site-packages ./venv
+
+  source ./venv/bin/activate  # sh, bash, or zsh
+
+  source ./venv/bin/activate.csh  # csh or tcsh
+
+  (vanv) $ pip install --upgrade pip
+
+  (vanv) $ pip list  # show packages installed within the virtual environment
+ 
+ 4. Install tensorflow
+
+  (vanv) $ pip install --upgrade tensorflow
+
+  (vanv) $ python -c "import tensorflow as tf;print(tf.reduce_sum(tf.random.normal([1000, 1000])))"
+
+  (vanv) $ deactivate  # don't exit until you're done using TensorFlow
+
+> หมายเหตุ : กรณีที่ต้องการติดตั้งแบบไม่สร้างสภาพแวดล้อมเสมือนจริง ให้ทำตามขั้นตอนด้านล่าง ต่อจากข้อ 2 ได้เลยโดยไม่ต้องทำข้อ 3-4
+
+  pip3 install --user --upgrade tensorflow  # install in $HOME
+
+  python3 -c "import tensorflow as tf; print(tf.reduce_sum(tf.random.normal([1000, 1000])))"
+
